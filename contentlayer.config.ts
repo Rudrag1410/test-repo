@@ -12,6 +12,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { execSync } from "child_process";
 
 // Pliny plugins
 import {
@@ -115,5 +116,13 @@ export default makeSource({
       (doc) => doc._raw.sourceFileDir === "blog"
     );
     createSearchIndex(allBlogs);
+
+    try {
+      execSync(
+        "find .contentlayer -name '*.mjs' -type f -exec sed -i.bak \"s/assert { type: 'json' }/with { type: 'json' }/g\" {} \\;"
+      );
+    } catch (error) {
+      console.log(error);
+    }
   },
 });

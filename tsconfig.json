@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2022",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,10 +23,15 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "@/*": [
+        "./src/*"
+      ],
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ]
     },
-    "baseUrl": "."
+    "baseUrl": ".",
+    "allowImportingTsExtensions": false
   },
   "include": [
     "next-env.d.ts",
@@ -31,5 +40,9 @@
     ".contentlayer/generated",
     "contentlayer.config.js"
   ],
-  "exclude": ["node_modules"]
+  "target": "ES2020",
+  "moduleResolution": "node",
+  "exclude": [
+    "node_modules"
+  ]
 }
